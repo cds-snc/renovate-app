@@ -1,0 +1,12 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "branchPrefix": "renovate/",
+  "username": "renovate-release",
+  "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
+  "platform": "github",
+  "includeForks": false,
+  "detectHostRulesFromEnv": true,
+  "repositories": [
+    "cds-snc/gc-articles"
+  ]
+}
