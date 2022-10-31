@@ -1,10 +1,5 @@
-# Generic Project Template
+# Renovate App
 
-This repository provides some base files for setting up a repository at
-CDS. Plan is to create more project template for specific technologies:
+Self-hosted Renovate App running with a scheduled [GitHub Action](https://github.com/renovatebot/github-action).
 
-- project-template-terraform
-- project-template-python
-- project-template-nodejs
-
-Note that default community health files are maintained at https://github.com/cds-snc/.github 
+This will be used to perform dependency updates on projects that have secret values as part of their Renovate configuration.
