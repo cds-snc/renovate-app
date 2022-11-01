@@ -3,6 +3,12 @@ name: Renovate App
 on:
   workflow_dispatch:    
 
+env:
+  GITHUB_GITHUB_COM_TOKEN: ${{ secrets.COMPOSER_GITHUB_COM_TOKEN }}
+  PACKAGIST_MY_YOAST_COM_TOKEN: ${{ secrets.COMPOSER_MY_YOAST_COM_TOKEN }}
+  RENOVATE_WPML_KEY: ${{ secrets.WPML_KEY }}
+  RENOVATE_WPML_USER_ID: ${{ secrets.WPML_USER_ID }}
+
 jobs:
   renovate:
     runs-on: ubuntu-latest
