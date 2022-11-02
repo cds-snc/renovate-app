@@ -1,12 +1,22 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "branchPrefix": "renovate/",
-  "username": "renovate-release",
+  "username": "renovate-cds[bot]",
   "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
-  "platform": "github",
-  "includeForks": false,
-  "detectHostRulesFromEnv": true,
+  "allowPlugins": true,
   "repositories": [
     "cds-snc/gc-articles"
-  ]
+  ],
+  "customEnvVariables": {
+    "WPML_KEY": "%ARTICLES_WPML_KEY%",
+    "WPML_USER_ID": "%ARTICLES_WPML_USER_ID%"    
+  },
+  "hostRules": [
+    {
+      "matchHost": "my.yoast.com",
+      "hostType": "packagist",
+      "username": "%ARTICLES_YOAST_USERNAME%",
+      "password": "%ARTICLES_YOAST_PASSWORD%"
+    }
+  ]  
 }
