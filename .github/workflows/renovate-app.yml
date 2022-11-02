@@ -1,7 +1,9 @@
 name: Renovate App
 
 on:
-  workflow_dispatch:    
+  workflow_dispatch:
+  schedule:
+    - cron: '0/30 * * * *' # every 30 minutes
 
 jobs:
   renovate:
