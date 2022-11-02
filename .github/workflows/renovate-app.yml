@@ -18,14 +18,14 @@ jobs:
           sed -i 's/%ARTICLES_YOAST_PASSWORD%/${{ secrets.ARTICLES_YOAST_PASSWORD }}/g' config.json
 
       - name: Get Renovate app token
-        id: renovate
-        uses: getsentry/action-github-app-token@97c9e23528286821f97fba885c1b1123284b29cc # tag=v2.0.0
+        id: get_token
+        uses: machine-learning-apps/actions-app-token@b5f0e20a640a9d046e57e5cbbb60159c18c2078c # tag=v0.21
         with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.APP_PEM }}
+          APP_PEM: ${{ secrets.APP_PEM }}
+          APP_ID: ${{ secrets.APP_ID }}
 
       - name: Renovate
         uses: renovatebot/github-action@f65d704dc047d296dba50b502af53c4ae186e49f # tag=v34.10.0
         with:
           configurationFile: config.json
-          token: 'x-access-token:${{ steps.renovate.outputs.token }}'
+          token: 'x-access-token:${{ steps.get_token.outputs.app_token }}'
