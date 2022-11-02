@@ -3,12 +3,6 @@ name: Renovate App
 on:
   workflow_dispatch:    
 
-env:
-  GITHUB_GITHUB_COM_TOKEN: ${{ secrets.COMPOSER_GITHUB_COM_TOKEN }}
-  PACKAGIST_MY_YOAST_COM_TOKEN: ${{ secrets.COMPOSER_MY_YOAST_COM_TOKEN }}
-  RENOVATE_WPML_KEY: ${{ secrets.WPML_KEY }}
-  RENOVATE_WPML_USER_ID: ${{ secrets.WPML_USER_ID }}
-
 jobs:
   renovate:
     runs-on: ubuntu-latest
@@ -16,8 +10,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
 
-      - name: Self-hosted Renovate
+      - name: Add secrets to config
+        run: |
+          sed -i 's/%ARTICLES_WPML_KEY%/${{ secrets.ARTICLES_WPML_KEY }}/g' config.json
+          sed -i 's/%ARTICLES_WPML_USER_ID%/${{ secrets.ARTICLES_WPML_USER_ID }}/g' config.json
+          sed -i 's/%ARTICLES_YOAST_USERNAME%/${{ secrets.ARTICLES_YOAST_USERNAME }}/g' config.json
+          sed -i 's/%ARTICLES_YOAST_PASSWORD%/${{ secrets.ARTICLES_YOAST_PASSWORD }}/g' config.json
+
+      - name: Get app token
+        id: get_token
+        uses: machine-learning-apps/actions-app-token@b5f0e20a640a9d046e57e5cbbb60159c18c2078c # tag=v0.21
+        with:
+          APP_PEM: ${{ secrets.APP_PEM }}
+          APP_ID: ${{ secrets.APP_ID }}
+
+      - name: Renovate
         uses: renovatebot/github-action@f65d704dc047d296dba50b502af53c4ae186e49f # tag=v34.10.0
         with:
           configurationFile: config.json
-          token: ${{ secrets.RENOVATE_TOKEN }}
+          token: 'x-access-token:${{ steps.get_token.outputs.app_token }}'
