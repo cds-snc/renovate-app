@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
 
       - name: Add secrets to config
         run: |
@@ -27,7 +27,7 @@ jobs:
           APP_ID: ${{ secrets.APP_ID }}
 
       - name: Renovate
-        uses: renovatebot/github-action@a125566bae8215faeb01df8d2488e29ded5ee85e # v34.54.2
+        uses: renovatebot/github-action@173425112e1e66409fb696205d24a3f2e4122db4 # v34.74.0
         with:
           configurationFile: config.json
           token: 'x-access-token:${{ steps.get_token.outputs.app_token }}'
