@@ -27,7 +27,7 @@ jobs:
           APP_ID: ${{ secrets.APP_ID }}
 
       - name: Renovate
-        uses: renovatebot/github-action@33fce9286b85fbc0be2a9a18f03db7e0acf3bfa1 # v34.77.1
+        uses: renovatebot/github-action@113b06e5b242a79bdb97ea0aaff69b00899bf740 # v34.94.0
         with:
           configurationFile: config.json
           token: 'x-access-token:${{ steps.get_token.outputs.app_token }}'
