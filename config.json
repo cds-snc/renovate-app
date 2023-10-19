@@ -4,8 +4,12 @@
   "username": "renovate-cds[bot]",
   "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
   "allowPlugins": true,
+  "allowedPostUpgradeCommands": [
+    "^npm run build$"
+  ],
   "repositories": [
-    "cds-snc/gc-articles"
+    "cds-snc/gc-articles",
+    "cds-snc/terraform-plan"
   ],
   "customEnvVariables": {
     "WPML_KEY": "%ARTICLES_WPML_KEY%",
