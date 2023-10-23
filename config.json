@@ -5,11 +5,14 @@
   "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
   "allowPlugins": true,
   "allowedPostUpgradeCommands": [
+    "^make release$",
     "^npm install$",
     "^npm run build$"
   ],
   "repositories": [
+    "cds-snc/dns-proxy-action",
     "cds-snc/gc-articles",
+    "cds-snc/github-repository-metadata-exporter",
     "cds-snc/terraform-plan"
   ],
   "customEnvVariables": {
