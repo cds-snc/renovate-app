@@ -34,3 +34,4 @@ jobs:
           useSlim: false
         env:
           LOG_LEVEL: debug
+          RENOVATE_GIT_PRIVATE_KEY: ${{ secrets.RENOVATE_GIT_PRIVATE_KEY }}
