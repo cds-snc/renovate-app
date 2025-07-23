@@ -4,7 +4,7 @@
   "username": "renovate-cds[bot]",
   "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
   "allowPlugins": true,
-  "allowedPostUpgradeCommands": [
+  "allowedCommands": [
     "^make release$",
     "^npm install$",
     "^npm run build$"
@@ -18,13 +18,5 @@
   "customEnvVariables": {
     "WPML_KEY": "%ARTICLES_WPML_KEY%",
     "WPML_USER_ID": "%ARTICLES_WPML_USER_ID%"    
-  },
-  "hostRules": [
-    {
-      "matchHost": "my.yoast.com",
-      "hostType": "packagist",
-      "username": "%ARTICLES_YOAST_USERNAME%",
-      "password": "%ARTICLES_YOAST_PASSWORD%"
-    }
-  ]  
+  }
 }
