@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: '0 */4 * * *' # every 4 hours
 
+env:
+  RENOVATE_VERSION: 41.137.1-full # renovate: datasource=docker depName=renovate packageName=ghcr.io/renovatebot/renovate
+
 jobs:
   renovate:
     runs-on: ubuntu-latest
@@ -38,6 +41,7 @@ jobs:
       - name: Renovate
         uses: renovatebot/github-action@2d941ef4e268e53affdc1f11365c69a73e544f50 # v43.0.14
         with:
+          renovate-version: ${{ env.RENOVATE_VERSION }}
           configurationFile: config.json
           token: 'x-access-token:${{ steps.app-token.outputs.token }}'
           mount-docker-socket: true
