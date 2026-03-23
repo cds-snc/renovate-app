@@ -19,7 +19,7 @@ jobs:
         uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3.12.0
 
       - name: Setup Node
-        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: 'latest'
 
@@ -31,7 +31,7 @@ jobs:
           sed -i 's/%ARTICLES_YOAST_PASSWORD%/${{ secrets.ARTICLES_YOAST_PASSWORD }}/g' config.json
 
       - name: Get Renovate app token
-        uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
+        uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2.2.2
         id: app-token
         with:
           app-id: ${{ secrets.APP_ID }}
@@ -39,7 +39,7 @@ jobs:
           owner: ${{ github.repository_owner }}
 
       - name: Renovate
-        uses: renovatebot/github-action@d65ef9e20512193cc070238b49c3873a361cd50c # v46.1.1
+        uses: renovatebot/github-action@abd08c7549b2a864af5df4a2e369c43f035a6a9d # v46.1.5
         with:
           renovate-version: ${{ env.RENOVATE_VERSION }}
           configurationFile: config.json
