@@ -14,6 +14,7 @@
     "cds-snc/dns-proxy-action",
     "cds-snc/gc-articles",
     "cds-snc/github-repository-metadata-exporter",
+    "cds-snc/platform-unified-accounts-user-portal",
     "cds-snc/terraform-plan"
   ],
   "customEnvVariables": {
