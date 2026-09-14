@@ -8,6 +8,7 @@
     "^make release$",
     "^npm install$",
     "^pnpm install$",
+    "^npm run build$",
     "^pnpm build$"
   ],
   "repositories": [
